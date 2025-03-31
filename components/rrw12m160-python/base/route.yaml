@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: rrw12m160-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: rrw12m160-python 
+  name: rrw12m160-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: rrw12m160-python
+    weight: 100 
